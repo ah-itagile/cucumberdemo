@@ -39,4 +39,4 @@ task checkIfTestsFailed << {
     }
 }
 
-test.finalizedBy(checkIfTestsFailed)
+//test.finalizedBy(checkIfTestsFailed)
