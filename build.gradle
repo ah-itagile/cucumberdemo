@@ -22,3 +22,21 @@ test {
     testLogging.showStandardStreams = true
     systemProperties System.getProperties()
 }
+
+task checkIfTestsFailed << {
+    if (test.state.failure) {
+        exec {
+            executable "/Users/ah/data/dev/xpdays2k16/usblamp"
+            args "31", "0", "0"
+        }
+        println("------------------------------------------> failure")
+    } else {
+        println("##################################### ok")
+        exec {
+            executable "/Users/ah/data/dev/xpdays2k16/usblamp"
+            args "0", "31", "0"
+        }
+    }
+}
+
+test.finalizedBy(checkIfTestsFailed)

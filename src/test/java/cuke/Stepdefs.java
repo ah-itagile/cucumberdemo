@@ -2,21 +2,22 @@ package cuke;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import xpdays.Basket;
 
 import static org.junit.Assert.assertEquals;
 
 public class Stepdefs {
 
-    xpdays.Shop shop = new xpdays.Shop();
+    Basket basket = new Basket();
 
 
-    @Given("^I add (\\d+) to my cart$")
+    @Given("^I add item for (\\d+) EUR to my cart$")
     public void I_add_to_my_cart(int price) throws Throwable {
-        shop.addItemToCart("xy", price);
+        basket.addItemToCart("xy", price);
     }
 
     @Then("^the sum of my shopping cart should be (\\d+)$")
     public void the_sum_of_my_shopping_cart_should_be(int expectedSum) throws Throwable {
-        assertEquals(expectedSum, shop.getSum(), 0.001);
+        assertEquals(expectedSum, basket.getSum(), 0.001);
     }
 }

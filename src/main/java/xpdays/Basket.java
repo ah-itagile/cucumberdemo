@@ -1,6 +1,6 @@
 package xpdays;
 
-public class Shop {
+public class Basket {
 
     private float sum=0;
 
